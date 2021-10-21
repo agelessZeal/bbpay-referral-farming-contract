@@ -32,7 +32,7 @@ async function main() {
 
     console.log("bigbar Contract deployed to ", bigbar.address)
 
-    const masterChef = await MasterChef.deploy(bbcToken.address,bigbar.address,deployer.address,'4000000000000000','11914361');
+    const masterChef = await MasterChef.deploy(bbcToken.address,bigbar.address,deployer.address,'2000000000000000000','11923071');
 
     await masterChef.deployed();
 
@@ -47,7 +47,8 @@ async function main() {
 
     console.log("add BBC-BNB pair lp",bbcBNBLp.address)
 
-    tx = await bbcToken.transfer(bigbar.address,  parseEther('200'))
+
+    tx = await bbcToken.transfer(bigbar.address,  parseEther('100'))
     await tx.wait()
 
     console.log("bigbar transfer bbc")
@@ -85,10 +86,10 @@ async function main() {
 
     console.log("enterStaking finished")
 
-    tx = await masterChef.enterStaking( parseEther('10'), '0x2402aa453F593fF39f443B177c84413b7Eb7971D')
-    await tx.wait()
+    // tx = await masterChef.enterStaking( parseEther('10'), '0x2402aa453F593fF39f443B177c84413b7Eb7971D')
+    // await tx.wait()
 
-    console.log("second enterStaking finished")
+    // console.log("second enterStaking finished")
 
     // tx = await masterChef.leaveStaking( parseEther('10'))
     // await tx.wait()

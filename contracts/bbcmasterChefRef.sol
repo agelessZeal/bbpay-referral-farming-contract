@@ -1645,6 +1645,9 @@ contract MasterChef is Ownable , ReentrancyGuard{
         emit Deposit(msg.sender, 0, _amount, _referrer);
     }
 
+    function updateBBCPerBlock(uint256 _rewardPerBlock) external onlyOwner {
+            bbcPerBlock = _rewardPerBlock;
+    }
     // Withdraw BBC tokens from STAKING.
     function leaveStaking(uint256 _amount) public nonReentrant {
         PoolInfo storage pool = poolInfo[0];
